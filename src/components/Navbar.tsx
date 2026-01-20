@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav>
       <div>
         <img src="/images/logo.svg" alt="logo" />
-        <p className="font-bold">Ray Lacite's Portfolio</p>
+        <p className="font-medium">Ray Lacite's Portfolio</p>
 
         <ul>
           {navLinks.map(({ id, name }) => (
