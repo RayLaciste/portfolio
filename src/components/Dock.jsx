@@ -19,7 +19,7 @@ const Dock = () => {
     const animateIcons = (mouseX) => {
       const { left } = dock.getBoundingClientRect();
 
-      icons.forEach((icon) => {˝
+      icons.forEach((icon) => {
         const { left: iconLeft, width } = icon.getBoundingClientRect();
         const center = iconLeft - left + width / 2;
         const distance = Math.abs(mouseX - center);
