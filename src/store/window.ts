@@ -2,7 +2,34 @@ import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 import { INITIAL_Z_INDEX, WINDOW_CONFIG } from "#constants";
 
-const useWindowStore = create(
+interface WindowData {
+  name: string;
+  image?: string;
+  imageUrl?: string;
+  subtitle?: string;
+  description?: string[];
+}
+
+interface Window {
+  isOpen: boolean;
+  zIndex: number;
+  data: WindowData | null;
+}
+
+interface Windows {
+  txtfile: Window;
+  [key: string]: Window;
+}
+
+interface WindowStore {
+  windows: Windows;
+  nextZIndex: number;
+  openWindow: (windowKey: string, data?: WindowData | null) => void;
+  closeWindow: (windowKey: string) => void;
+  focusWindow: (windowKey: string) => void;
+}
+
+const useWindowStore = create<WindowStore>()(
   immer((set) => ({
     windows: WINDOW_CONFIG,
     nextZIndex: INITIAL_Z_INDEX + 1,

@@ -4,7 +4,25 @@ import { immer } from "zustand/middleware/immer";
 
 const DEFAULT_LOCATION = locations.work;
 
-const useLocationStore = create(
+interface LocationItem {
+  id: number;
+  name: string;
+  icon?: string;
+  kind?: string;
+  fileType?: string;
+  href?: string;
+  children?: LocationItem[];
+  windowPosition?: string;
+  position?: string;
+}
+
+interface LocationStore {
+  activeLocation: LocationItem;
+  setActiveLocation: (location: LocationItem | undefined) => void;
+  resetActiveLocation: () => void;
+}
+
+const useLocationStore = create<LocationStore>()(
   immer((set) => ({
     activeLocation: DEFAULT_LOCATION,
 
