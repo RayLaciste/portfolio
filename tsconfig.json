@@ -4,6 +4,9 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": { "#*": ["src/*"] },
+    "module": "esnext",
+    "target": "es2020",
+    "moduleResolution": "bundler",
   },
   "include": ["src"],
 }
