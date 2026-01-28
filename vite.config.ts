@@ -7,6 +7,12 @@ import { fileURLToPath } from "url";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  server: {
+    hmr: {
+      host: "localhost",
+      port: 5173,
+    },
+  },
   resolve: {
     alias: {
       "#components": resolve(

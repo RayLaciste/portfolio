@@ -27,6 +27,7 @@ const Home = () => {
             key={project.id}
             className={clsx("group folder", project.windowPosition)}
             onClick={() => handleOpenProjectFinder(project)}
+            style={{ whiteSpace: "pre-wrap" }}
           >
             <img src="/images/folder.png" alt={project.name} />
             <p>{project.name}</p>
